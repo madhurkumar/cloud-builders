@@ -1,0 +1,8 @@
+steps:
+  - id: 'Stage app using gradle appengine plugin'
+    name: 'gcr.io/cloud-builders/gradle'
+    args: ['appengineStage']
+  - id: "Deploy to app engine using gcloud image"
+    name: 'gcr.io/cloud-builders/gcloud'
+    args: ['app', 'deploy', 'build/staged-app/app.yaml']
+timeout: '1600s'
